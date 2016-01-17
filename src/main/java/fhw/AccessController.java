@@ -22,7 +22,7 @@ public class AccessController
             throws Exception
     {
         prepareForVerification();
-        if(verify())
+        if(!verify())
         {
             redirect();
         }

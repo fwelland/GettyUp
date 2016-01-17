@@ -11,6 +11,18 @@
         <div>List of things to click:</div>
         <ul>
             <li>
+                <h:link outcome="view-all-accounts.xhtml" value="navigate to all accounts with OK groupId" >
+                    <f:param name="gid" value="42" />
+                </h:link>
+            </li>
+
+            <li>
+                <h:link outcome="view-all-accounts.xhtml" value="navigate to all accounts with NOT OK groupId" >
+                    <f:param name="gid" value="57" />
+                </h:link>
+            </li>
+
+            <li>
                 <h:link outcome="get.xhtml" value="Get passing value ABC">
                     <f:param name="val" value="ABC"/>
                 </h:link>
@@ -18,8 +30,8 @@
             <li>
                 <h:link outcome="get.xhtml" value="Get passing value XYZ">
                     <f:param name="val" value="XYZ"/>
-                </h:link>                
-            </li>            
+                </h:link>
+            </li>
         </ul>
     </body>
 </html>
