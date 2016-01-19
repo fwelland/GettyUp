@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:o="http://omnifaces.org/ui"    >
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <f:metadata>
         <o:importConstants type="fhw.Privilege" var="priv" />
@@ -14,6 +15,11 @@
     <body>
         <div>
             <h1>All Accounts for #{viewAllAccountsController.groupId}</h1>
+
+            <h:dataTable >
+
+            </h:dataTable>
+            
         </div>
     </body>
 </html>

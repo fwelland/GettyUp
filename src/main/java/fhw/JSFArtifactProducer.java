@@ -7,23 +7,32 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 @RequestScoped
-public class ExternalContextProducer
+public class JSFArtifactProducer
 {
     private ExternalContext ec;
 
-    public ExternalContextProducer()
+    private FacesContext fc;
+
+    public JSFArtifactProducer()
     { }
 
 
     @PostConstruct
     private void init()
     {
-        ec = FacesContext.getCurrentInstance().getExternalContext();
+        fc = FacesContext.getCurrentInstance();
+        ec = fc.getExternalContext();
     }
 
     @Produces
     public ExternalContext getEC()
     {
         return(ec);
+    }
+
+    @Produces
+    public FacesContext getFC()
+    {
+        return(fc);
     }
 }
