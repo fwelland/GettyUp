@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <cc:interface >
+        <cc:attribute name="title" required="true" type="java.lang.String"/>
+        <cc:attribute name="outcome" required="true" type="java.lang.String"/>
+    </cc:interface>
+
+    <cc:implementation >
+        <div id="#{cc.id}">
+            <h:button value="#{cc.attrs.title}" outcome="#{cc.attrs.outcome}"/>
+        </div>
+    </cc:implementation>
+</ui:component>

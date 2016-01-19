@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:debug hotkey="k"/>
+    <head>
+        <title>Messing about with composite components</title>
+    </head>
+    <body>
+        <div>Gonna make a simple form that does nothing</div>
+        <h:form >
+            <ez:sillyButton title="GOTO Home" outcome="index.xhtml" />
+            <ez:sillyButton title="I shouldn't be displayed" outcome="get.xhtml" rendered="#{false}"/>
+        </h:form>
+    </body>
+</html>
