@@ -3,11 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
+    <h:head>
         <title>Simple GET/ViewParam Test</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
         <div>List of things to click:</div>
         <ul>
             <li>
@@ -42,6 +41,10 @@
             <li>
                 <h:link outcome="sillyForm.xhtml" value="Goto SillyForm To test some cc stuffs" />
             </li>
+
+            <li>
+                <h:link outcome="compositeComponentTest.xhtml" value="Goto cc test with backing componenet" />
+            </li>
         </ul>
-    </body>
+    </h:body>
 </html>
