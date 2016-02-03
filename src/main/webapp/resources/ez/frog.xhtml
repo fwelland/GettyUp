@@ -11,11 +11,31 @@
     </cc:interface>
 
     <cc:implementation >
+        <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>
         <f:event type="postAddToView" listener="#{cc.initialize}" />
-        <div id="#{cc.id}">
-            <h:commandLink value="#{cc.linkLable}">
-                <f:ajax listener="#{cc.someAction}" />
+        <div id="#{cc.id}">           
+            <h:commandLink value="#{cc.linkLable}" onclick="ribbit_#{cc.id}(); return false;">
+                
             </h:commandLink>
         </div>
+        <h:outputScript >
+            function ribbit_#{cc.id}()
+            {
+                $.ajax({
+                  type: 'GET',
+                  url: "/GettyUp/webapi/frogws/foo",
+                  dataType:'json',
+                  contentType: "application/json; charset=utf-8", 
+                  success: function (msg) {
+                    alert(msg);
+                  },
+
+                  error: function (xhr, ajaxOptions, thrownError) {
+                    alert('error');
+                  }
+                }); 
+            }
+</h:outputScript>        
+        
     </cc:implementation>
 </ui:component>
