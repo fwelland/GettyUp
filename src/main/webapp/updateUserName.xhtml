@@ -6,6 +6,14 @@
       template="/templates/template.xhtml">
 
     <ui:define name="content" >
-        <h3> This is my over ridden content </h3>
+        <h3> Change Your UserName </h3>
+        <h:form >
+            <h:panelGrid columns="2">
+                <h:outputLabel value="user name:" />
+                <h:inputText value="#{uli.userName}" />
+
+                <h:commandButton value="update" />
+            </h:panelGrid>
+        </h:form>
     </ui:define>
 </ui:composition>

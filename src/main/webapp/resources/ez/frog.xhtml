@@ -7,35 +7,39 @@
 
     <cc:interface componentType="FrogBack">
         <cc:attribute name="title" required="true" type="java.lang.String"/>
-        <cc:attribute name="outcome" required="true" type="java.lang.String"/>
+        <cc:attribute name="cid" required="true" type="java.lang.Integer"/>
     </cc:interface>
 
     <cc:implementation >
         <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>
         <f:event type="postAddToView" listener="#{cc.initialize}" />
-        <div id="#{cc.id}">           
-            <h:commandLink value="#{cc.linkLable}" onclick="ribbit_#{cc.id}(); return false;">
-                
-            </h:commandLink>
+        <div id="#{cc.id}">
+            <h:commandLink id="hideableLink#{cc.id}" value="#{cc.linkLable}" onclick="ribbit_#{cc.id}(); return false;"/>
         </div>
         <h:outputScript >
             function ribbit_#{cc.id}()
             {
                 $.ajax({
                   type: 'GET',
-                  url: "/GettyUp/webapi/frogws/foo",
+                  url: "/GettyUp/webapi/frogws/#{cc.attrs.cid}",
                   dataType:'json',
-                  contentType: "application/json; charset=utf-8", 
-                  success: function (msg) {
-                    alert(msg);
+                  contentType: "application/json; charset=utf-8",
+                  success: function (msg){
+                    if(msg.result)
+                    {
+                        $("[id$='hideableLink#{cc.id}']").hide();
+                    }
+                    else
+                    {
+                        alert(msg.result);
+                    }
                   },
-
                   error: function (xhr, ajaxOptions, thrownError) {
                     alert('error');
                   }
-                }); 
+                });
             }
-</h:outputScript>        
-        
+</h:outputScript>
+
     </cc:implementation>
 </ui:component>

@@ -2,17 +2,19 @@
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"      
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      transient="true">           
+      transient="true">
 
-    <div id="page" style="outline: aquamarine dotted">		
+    <div id="page" style="outline: aquamarine dotted">
         <h1>This is the header area</h1>
-        <div>    
+        <div>
             <h:form id="header-menu" >
-                <ez:frog title="phony popup" outcome="something" />     
+                <ez:frog title="hideable link" cid="24" />
                 some other stuff here...
+                <ez:frog title="non-hideable link" cid="25" />
+                <h:link outcome="index" value="HOME"/>
             </h:form>
-        </div>            
+        </div>
     </div>
 </ui:composition>
