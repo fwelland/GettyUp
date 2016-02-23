@@ -9,18 +9,59 @@
         <o:importConstants type="fhw.Privilege" var="priv" />
         <f:viewAction action="${auth.authorizeOrRedirect(priv.ViewAccount)}" />
     </f:metadata>
-    <head>
+    <h:head>
         <title>Data Table Update</title>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
         <div>
             <h:form >
                 <h1>Sample of code that updates Data Table</h1>
 
-                <h:dataTable >
+                <h:dataTable id="tabelOfFrogs"  var="it" value="#{sillyDataTableController.items}">
+                    <h:column >
+                        <f:facet name="header">Frog Name</f:facet>
+                        <h:outputText value="#{it.name}"/>
+                    </h:column>
+                    
+                    <h:column >
+                        <f:facet name="header">Description</f:facet>
+                        <h:outputText value="#{it.description}"/>
+                    </h:column>
 
+                    <h:column >
+                        <f:facet name="header">Asking Price</f:facet>
+                        <h:outputText value="#{it.value}">
+                            <f:convertNumber pattern="$00.00" />
+                        </h:outputText>
+                    </h:column>
                 </h:dataTable>
+                
+                <div>
+                    <h:commandButton id="somePig" value="PressMe!" onclick=" ribbit(); return false;" />
+                </div>
+                
+                <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>                
+                
+                <h:outputScript >
+                    function ribbit()
+                    {
+                        $.ajax({
+                          type: 'GET',
+                          url: "/GettyUp/webapi/frogws/24",
+                          dataType:'json',
+                          contentType: "application/json; charset=utf-8",
+                          success: function (msg){
+                                alert(msg.result);
+                          },
+                          error: function (xhr, ajaxOptions, thrownError) {
+                            alert('error');
+                          }
+                        });
+                    }
+                </h:outputScript>                
+                                                
             </h:form>
         </div>
-    </body>
+    </h:body>
 </html>
+
