@@ -17,12 +17,12 @@
             <h:form >
                 <h1>Sample of code that updates Data Table</h1>
 
-                <h:dataTable id="tabelOfFrogs"  var="it" value="#{sillyDataTableController.items}">
+                <h:dataTable id="tableOfFrogs"  var="it" value="#{sillyDataTableController.items}">
                     <h:column >
                         <f:facet name="header">Frog Name</f:facet>
                         <h:outputText value="#{it.name}"/>
                     </h:column>
-                    
+
                     <h:column >
                         <f:facet name="header">Description</f:facet>
                         <h:outputText value="#{it.description}"/>
@@ -35,13 +35,17 @@
                         </h:outputText>
                     </h:column>
                 </h:dataTable>
-                
+
                 <div>
                     <h:commandButton id="somePig" value="PressMe!" onclick=" ribbit(); return false;" />
                 </div>
-                
-                <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>                
-                
+                <div>
+                    <h:commandButton id="someOtherPig" value="UseMe!" action="#{sillyDataTableController.setSimpsonsItems}" >
+                        <f:ajax render="tableOfFrogs"  />
+                    </h:commandButton>
+                </div>
+                <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>
+
                 <h:outputScript >
                     function ribbit()
                     {
@@ -58,8 +62,8 @@
                           }
                         });
                     }
-                </h:outputScript>                
-                                                
+                </h:outputScript>
+
             </h:form>
         </div>
     </h:body>

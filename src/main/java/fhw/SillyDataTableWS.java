@@ -1,22 +1,14 @@
 package fhw;
 
 import java.io.StringWriter;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonNumber;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
-import javax.json.JsonString;
-import javax.json.JsonValue;
 import javax.json.JsonWriter;
 
 
@@ -24,9 +16,9 @@ import javax.json.JsonWriter;
 public class SillyDataTableWS
 {
 
-    @Inject 
-    private SillyDataTableController sdtc; 
-    
+    @Inject
+    private SillyDataTableController sdtc;
+
     public SillyDataTableWS()
     {
     }
@@ -36,28 +28,21 @@ public class SillyDataTableWS
     @Produces(MediaType.APPLICATION_JSON)
     public String pressed()
     {
-        SillyTableItem frogs[] = sdtc.getDifferentItems(); 
-        
-        JsonArray ja = new JsonArray();
-        
-
-    //Json.createArrayBuilder().
-            
-            
-//            .add(Json.createObjectBuilder()
-//      .add("firstName", "John")
-//      .add("lastName", "Doe")))
-//  .build();        
-        Jas
-        //Json.createObjectBuilder().add(
-        //JsonObject model = Json.createObjectBuilder().add("result", frogs).build();
+        sdtc.setSimpsonsItems();
+        SillyTableItem frogs[] = sdtc.getItems();
+        JsonArrayBuilder jab = Json.createArrayBuilder();
+        for(SillyTableItem sti : frogs)
+        {
+            jab.add(Json.createObjectBuilder().add("name", sti.getName()).add("description", sti.getDescription()).add("value", sti.getValue()));
+        }
+        JsonObject model = Json.createObjectBuilder().add("items", jab).build();
         StringWriter stWriter = new StringWriter();
         try (JsonWriter jsonWriter = Json.createWriter(stWriter))
         {
             jsonWriter.writeObject(model);
         }
         String jsonData = stWriter.toString();
-
+        System.out.println(jsonData);
         return jsonData;
     }
 }
