@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <f:metadata>
+        <o:importConstants type="fhw.Privilege" var="priv" />
+        <f:viewAction action="${auth.authorizeOrRedirect(priv.ViewAccount)}" />
+    </f:metadata>
+    <h:head>
+        <title>JSON based datatable</title>
+    </h:head>
+    <h:body>
+        <div>
+            <h:form >
+                <h1>Sample of an experiment using datatable from JSON</h1>
+                
+                <table id="lillyPadTable" class="display" cellspacing="0" width="50%">
+                    <thead>
+                        <tr>
+                            <th>Frog Name</th>
+                            <th>Description</th>
+                            <th>Asking Price</th>
+                        </tr>
+                    </thead>
+                    
+                    
+                    <tfoot>
+                        <tr>
+                            <th>Frog Name</th>
+                            <th>Description</th>
+                            <th>Asking Price</th>
+                        </tr>
+                    </tfoot>                        
+                </table>
+                
+
+
+                <div>
+                    <h:commandButton id="somePig" value="PressMe!" onclick=" ribbit(); return false;" />
+                </div>
+                <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>
+                <h:outputScript name="datatables.min.js" library="dt" target="head"/>
+
+                <h:outputScript >
+                    
+                    $(document).ready(function() {
+                        $('#lillyPadTable').DataTable({
+                            "paging":false,
+                            "ordering":false,
+                            "info":false,
+                            "searching":false, 
+                            "columns" : [ {"data":"name"},{"data":"description"},{"data":"value"} ], 
+                            "data" : [
+                                        {"name":"Pinkie", "description":"This is a pink frog", "value":"$24.99"}, 
+                                        {"name":"Red", "description":"This is a red frog", "value":"$2.99"}
+                                     ]                            
+                            } ); 
+                    } );
+                    
+                    
+                    function ribbit()
+                    {
+                        $.ajax({
+                          type: 'GET',
+                          url: "/GettyUp/webapi/frogtable",
+                          dataType:'json',
+                          contentType: "application/json; charset=utf-8",
+                          success: function (results){
+                                var dt = $('#lillyPadTable').DataTable(); 
+                                dt.clear(); 
+                                dt.rows.add(results.items); 
+                                dt.draw(); 
+
+                          },
+                          error: function (xhr, ajaxOptions, thrownError) {
+                            alert('error');
+                          }
+                        });
+                    }
+                </h:outputScript>
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
