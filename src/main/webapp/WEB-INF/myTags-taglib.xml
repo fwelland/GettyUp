@@ -3,6 +3,8 @@
     xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+    <description>This is a nifty description</description>
+    <namespace>http://fhw/tags</namespace>
     <tag>
         <tag-name>idaho</tag-name>
         <attribute>
@@ -13,7 +15,9 @@
             <name>bankId</name>
             <type>Integer</type>
         </attribute>
-        <handler-class>fhw.th</handler-class>
+        <handler-class>fhw.IdahoHandler</handler-class>
+        <source>tags/uselessComposition.xhtml</source>
+        
     </tag>
 
 </facelet-taglib>
