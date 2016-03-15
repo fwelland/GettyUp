@@ -2,3 +2,8 @@
 /.gradle/
 /.nb-gradle-properties
 /build/
+/private/cache/retriever/www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-facelettaglibrary_2_2.xsd
+/private/cache/retriever/catalog.xml
+/private/cache/retriever/www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/javaee_7.xsd
+/private/cache/retriever/www.w3.org/2001/xml.xsd
+/private/cache/retriever/www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/javaee_web_services_client_1_4.xsd
