@@ -13,7 +13,7 @@ public class FrogBackingComponent
 
     public void initialize()
     {
-        System.out.println("BC initialize was called");
+        System.out.println("BC initialize was called:  " + this);
         String s = (String)getAttributes().get("title");
         if(null != s)
         {
@@ -27,12 +27,12 @@ public class FrogBackingComponent
 
     public String getLinkLable()
     {
-        System.out.println("BC called");
+        System.out.println("getLinkLable:  calledL:  " + this);
         return(linkLable);
     }
 
     public void someAction()
     {
-        System.out.println("Action was pressed");
+        System.out.println("Action was pressed:  " + this);
     }
 }

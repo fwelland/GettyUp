@@ -6,6 +6,7 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:panelGroup layout="block">
+        <f:event type="postAddToView" listener="#{idaho.potato()}" />
         <h:outputLabel value="Name:   #{bankName}" />
         <br/>
         <h:outputLabel value="id:   #{bankId}" />        

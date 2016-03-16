@@ -7,17 +7,7 @@
     <namespace>http://fhw/tags</namespace>
     <tag>
         <tag-name>idaho</tag-name>
-        <attribute>
-            <name>bankName</name>
-            <type>String</type>
-        </attribute>
-        <attribute>
-            <name>bankId</name>
-            <type>Integer</type>
-        </attribute>
-        <handler-class>fhw.IdahoHandler</handler-class>
-        <source>tags/uselessComposition.xhtml</source>
-        
+        <source>tags/uselessComposition.xhtml</source>       
     </tag>
 
 </facelet-taglib>
