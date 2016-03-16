@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <cc:interface componentType="redirectBacker">
+        <cc:attribute name="title" required="true" type="java.lang.String"/>
+        <cc:attribute name="cid" required="true" type="java.lang.Integer"/>
+    </cc:interface>
+
+    <cc:implementation >
+        <div id="#{cc.id}">
+            <h:commandButton id="redir" value="#{cc.linkLable}" >
+                <f:ajax listener="#{cc.someAction()}" />
+            </h:commandButton>
+        </div>
+    </cc:implementation>
+</ui:component>
