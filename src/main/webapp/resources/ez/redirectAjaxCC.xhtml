@@ -5,12 +5,13 @@
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <cc:interface componentType="redirectBacker">
+    <cc:interface componentType="redirectBacker" >
         <cc:attribute name="title" required="true" type="java.lang.String"/>
         <cc:attribute name="cid" required="true" type="java.lang.Integer"/>
     </cc:interface>
 
     <cc:implementation >
+        <f:event type="postAddToView" listener="#{cc.init()}"/>
         <div id="#{cc.id}">
             <h:commandButton id="redir" value="#{cc.linkLable}" >
                 <f:ajax listener="#{cc.someAction()}" />
