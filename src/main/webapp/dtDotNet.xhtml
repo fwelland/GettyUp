@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      template="/templates/template.xhtml"
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content" >
+        <h3>Overridden content -- sample of a data tables dot net wrapped in a CC</h3>
+        <h:form >
+            <br/>
+            <h:panelGroup layout="block" >
+                Putting in a CC that is using a data table.
+            </h:panelGroup>
+            <br/>
+            <ez:myDatatable cid="45" title="Fred Was Here">
+                <f:facet name="header" >
+                    <th>Frog Name</th>
+                    <th>Description</th>
+                    <th>Asking Price</th>
+                </f:facet>
+                <f:facet name="columns">
+                        [
+                            {title:"Frog Name"},
+                            {title:"Description"},
+                            {title:"Price"}
+                        ];
+                </f:facet>
+
+                <f:facet name="dataSet">
+                        [
+                            ["Henry","Orange Frog", "$25.00"],
+                            ["Howard","Purple Frog", "$26.00"],
+                            ["Ron","Yellow Frog", "$27.00"]
+                        ];
+                </f:facet>
+            </ez:myDatatable>
+        </h:form>
+    </ui:define>
+</ui:composition>
