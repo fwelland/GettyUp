@@ -15,26 +15,9 @@
             </h:panelGroup>
             <br/>
             <ez:myDatatable cid="45" title="Fred Was Here">
-                <f:facet name="header" >
-                    <th>Frog Name</th>
-                    <th>Description</th>
-                    <th>Asking Price</th>
-                </f:facet>
-                <f:facet name="columns">
-                        [
-                            {title:"Frog Name"},
-                            {title:"Description"},
-                            {title:"Price"}
-                        ];
-                </f:facet>
-
-                <f:facet name="dataSet">
-                        [
-                            ["Henry","Orange Frog", "$25.00"],
-                            ["Howard","Purple Frog", "$26.00"],
-                            ["Ron","Yellow Frog", "$27.00"]
-                        ];
-                </f:facet>
+                <f:facet name="columns">[ {"data":"name","title":"Frog Name"},{"data":"description","title":"Description"},{"data":"value","title":"Asking Price"} ]</f:facet>
+                
+                <f:facet name="dataSet">#{datatableTestController.data}</f:facet>
             </ez:myDatatable>
         </h:form>
     </ui:define>

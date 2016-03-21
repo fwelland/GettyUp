@@ -15,12 +15,12 @@
         <h:outputScript name="jquery-2.2.0.min.js" library="js" target="head"/>
         <h:outputScript name="datatables.min.js" library="dt" target="head"/>
         <h:outputScript >
-            var cols#{cc.id} = <cc:renderFacet name="columns" />
-            var dataSet#{cc.id} = <cc:renderFacet name="dataSet" />
+            var cols#{cc.id} = <cc:renderFacet name="columns" /> ; 
+            var dataSet#{cc.id} = <cc:renderFacet name="dataSet" /> ; 
 
             $(document).ready(function() {
                 $('#dt#{cc.id}').DataTable({
-                    data: dataSet#{cc.id},
+                    data: dataSet#{cc.id}.items,
                     columns: cols#{cc.id}
                 });
             });
