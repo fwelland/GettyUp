@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      template="/templates/template.xhtml"
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="content" >
+        <h3>Hector is a dog!</h3>
+        <h:form >
+            <br/>
+            <h:panelGroup layout="block" >
+                Playing with o:validateBean...
+            </h:panelGroup>
+            <br/>
+            <h:panelGrid frame="box" columns="2" id="ohMy" >
+
+                <h:outputLabel value="First Name" for="fname"/>
+                <h:inputText  id="fname" value="#{vladTheController.searchCritter.firstName}"/>
+
+                <h:outputLabel value="Last Name" for="lname"/>
+                <h:inputText  id="lname" value="#{vladTheController.searchCritter.lastName}"/>
+
+                <h:outputLabel value="ID" for="eyeD"/>
+                <h:inputText  id="eyeD" value="#{vladTheController.searchCritter.id}"/>
+
+                <h:outputLabel value="Tag Line" for="tline"/>
+                <h:inputText  id="tline" value="#{vladTheController.searchCritter.tagLine}"/>
+
+                <h:panelGroup />
+                <h:commandButton value="submit" action="#{vladTheController.submit()}">
+
+                </h:commandButton>
+
+                <h:messages />
+                <h:panelGroup />
+
+            </h:panelGrid>
+            <o:validateBean value="#{vladTheController.searchCritter}" validationGroups="fhw.SearchCritterVladGroup" method="validateCopy" />
+        </h:form>
+    </ui:define>
+</ui:composition>
