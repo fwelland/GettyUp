@@ -13,7 +13,7 @@ dependencies {
     providedCompile 'javax:javaee-api:7.0',
                     'org.projectlombok:lombok:1.16.6'
 
-    compile 'org.omnifaces:omnifaces:2.2'
+    compile 'org.omnifaces:omnifaces:2.3'
 
     testCompile 'junit:junit:4.10',
                 'org.spockframework:spock-core:1.0-groovy-2.4'

@@ -20,6 +20,7 @@ public class SearchCritterVladidator
         System.out.println("isVALID!!!!!");
         System.out.println("t.firstName:  " + t.getFirstName());
         System.out.println("the id is:  " + System.identityHashCode(t));
+        System.out.println("the copy is: " + t);
         return true;
     }
 
