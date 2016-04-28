@@ -6,14 +6,17 @@ sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
-
+    
+    maven{
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
 }
 
 dependencies {
     providedCompile 'javax:javaee-api:7.0',
                     'org.projectlombok:lombok:1.16.6'
 
-    compile 'org.omnifaces:omnifaces:2.3'
+    compile 'org.omnifaces:omnifaces:2.4-SNAPSHOT'
 
     testCompile 'junit:junit:4.10',
                 'org.spockframework:spock-core:1.0-groovy-2.4'

@@ -11,16 +11,16 @@ public class SearchCritterVladidator
     @Override
     public void initialize(VladidSearchCritter a)
     {
-        System.out.println("INIT");
+        System.out.println("SearchCritterVladidator:INIT");
     }
 
     @Override
     public boolean isValid(SearchCritter t, ConstraintValidatorContext cvc)
     {
-        System.out.println("isVALID!!!!!");
+        System.out.println("SearchCritterVladidator: isVALID, returning true");
         System.out.println("t.firstName:  " + t.getFirstName());
         System.out.println("the id is:  " + System.identityHashCode(t));
-        System.out.println("the copy is: " + t);
+        System.out.println("the validatable copy is: " + t);
         return true;
     }
 
